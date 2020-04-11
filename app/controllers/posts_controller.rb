@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.includes(:user, :category)
   end
 
   def show
@@ -8,11 +8,11 @@ class PostsController < ApplicationController
   end
 
   def user_posts
-    @posts = Post.includes(:user).where(user: { id: current_user.id })
+    @posts = Post.includes(:user, :category).where(user: { id: current_user.id })
   end
 
   def render_form
-    render "posts/form"
+    render 'posts/form'
   end
 
   def parse_link
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     if result == 'Success'
       redirect_to root_path, notice: 'Success'
     else
-      render "posts/form", alert: 'Error'
+      render 'posts/form', alert: 'Error'
     end
   end
 end

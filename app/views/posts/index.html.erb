@@ -4,6 +4,12 @@
     <%= link_to post.title, post_path(post) %>
   </h4>
   <p>
+    <%= post.user.name %>
+  </p>
+  <p>
+    <b> <%= post.category.title %> </b>
+  </p>
+  <p>
     <%= h truncate(post.body, :length => 100 )%>
   </p>
   <p>

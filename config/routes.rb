@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'profile', to: 'profiles#show', as: 'profile'
 
-  resources :posts, only: [:index, :show]
-  get 'render_form_posts', to: "posts#render_form", as: 'render_form_posts'
+  resources :posts, only: %i[index show]
+  get 'render_form_posts', to: 'posts#render_form', as: 'render_form_posts'
   post 'send_link', to: 'posts#parse_link', as: 'send_link'
 end
