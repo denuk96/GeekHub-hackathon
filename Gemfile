@@ -4,16 +4,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'coffee-rails', '~> 4.2'
-gem 'omniauth-facebook'
 gem 'devise'
 gem 'jbuilder', '~> 2.5'
+gem 'omniauth-facebook'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -31,9 +30,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem "letter_opener"
-  gem 'rubocop'
   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
+  gem 'letter_opener'
+  gem 'rubocop'
 end
 
 group :test do

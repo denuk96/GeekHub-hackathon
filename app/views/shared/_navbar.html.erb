@@ -8,3 +8,7 @@
     <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
   <% end %>
 </div>
+
+<div>
+  <%= link_to 'choose categories', edit_user_category_path(id: 1) if current_user %>
+</div>
