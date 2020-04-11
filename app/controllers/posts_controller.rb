@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find params[:id]
+  end
+
   def user_posts
     @posts = Post.includes(:user).where(user: { id: current_user.id })
   end
@@ -15,9 +19,12 @@ class PostsController < ApplicationController
     row_link = params[:body][:link]
     user = current_user
 
-    PostFabric::Parse.new(row_link, user).generate_post
+    result = PostFabric::Parse.new(row_link, user).generate_post
 
-    # byebug
-    # p 'asdasd'
+    if result == 'Success'
+      redirect_to root_path, notice: 'Success'
+    else
+      render "posts/form", alert: 'Error'
+    end
   end
 end
