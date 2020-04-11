@@ -6,4 +6,10 @@
   <li>
     <%= link_to 'add post to my account', render_form_posts_path %>
   </li>
+  <li>
+    <%= link_to 'my posts', user_posts_path %>
+  </li>
+  <li>
+    <%= link_to 'posts in my categories', posts_with_included_categories_path %>
+  </li>
 </ul>

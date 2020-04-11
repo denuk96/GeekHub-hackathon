@@ -4,11 +4,22 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find params[:id]
+    @post = Post.includes(:user, :category).find params[:id]
   end
 
   def user_posts
-    @posts = Post.includes(:user, :category).where(user: { id: current_user.id })
+    @posts = Post.includes(:user).where(users: { id: current_user.id }).includes(:category)
+    render "posts/index"
+  end
+
+  def posts_with_included_categories
+    categories = current_user.categories.includes(posts: :user)
+    @posts = []
+    categories.each do |category|
+      @posts +=category.posts
+    end
+
+    render "posts/index"
   end
 
   def render_form
