@@ -1,0 +1,6 @@
+<%= form_for :body, url: send_link_path do |form| %>
+  <h4> Put your link here</h4>
+  <%= form.text_field :link, class: "form-control"%>
+
+  <%= form.submit 'Submit', class: "btn btn-light btn-lg" %>
+<% end %>

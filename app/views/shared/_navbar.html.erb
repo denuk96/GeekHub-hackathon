@@ -10,5 +10,11 @@
 </div>
 
 <div>
-  <%= link_to 'choose categories', edit_user_category_path(id: 1) if current_user %>
+  <ul>
+    <% if current_user %>
+      <li>
+        <%= link_to 'my profile', profile_path %>
+      </li>
+    <%end %>
+  </ul>
 </div>

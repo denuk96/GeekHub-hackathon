@@ -4,6 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  body        :text
+#  picture     :string
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -22,6 +23,8 @@
 #
 
 class Post < ApplicationRecord
+  mount_uploader :picture, PictureUploader
+
   belongs_to :user
   belongs_to :category
 end

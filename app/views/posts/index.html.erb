@@ -1,1 +1,13 @@
-<h1> asdadasda</h1>
+<h1> All Posts</h1>
+<% @posts.each do |post| %>
+  <h4>
+    <%= post.title %>
+  </h4>
+  <p>
+    <%= post.body %>
+  </p>
+  <p>
+    <%= image_tag post.picture.url(:small) %>
+  </p>
+  <hr>
+<% end %>

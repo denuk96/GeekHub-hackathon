@@ -31,7 +31,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :user_categories
-  has_many :categories, through: :user_categories
+  has_many :categories, through: :user_categories, dependent: :destroy
   has_many :posts
 
   def self.new_with_session(params, session)
