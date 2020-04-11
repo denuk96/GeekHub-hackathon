@@ -29,8 +29,10 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable,
          :omniauthable, omniauth_providers: [:facebook]
+
   has_many :user_categories
   has_many :categories, through: :user_categories
+  has_many :posts
 
   def self.new_with_session(params, session)
     super.tap do |user|
